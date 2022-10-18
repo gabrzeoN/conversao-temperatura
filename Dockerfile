@@ -1,11 +1,11 @@
 FROM node:16.17.1
 
-WORKDIR /app
-
-COPY . .
-
 WORKDIR /app/src
+
+COPY ./src/package*.json ./
 
 RUN npm i
 
-CMD ["node", "server.js"]
+COPY ./src ./
+
+CMD ["node", "./server.js"]
